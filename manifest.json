@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Vzors MI — Rudens & Helovins",
+  "version": "1.0",
+  "description": "Labdien, Rudens. Smart browser powered by Vzors MI",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "icons": {
+    "128": "icon.png"
+  }
+}
