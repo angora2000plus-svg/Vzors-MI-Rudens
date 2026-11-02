@@ -1,105 +1,102 @@
-<!DOCTYPE html>
+html<!DOCTYPE html>
 <html lang="lv">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VZOR — Rudens & Helovīns</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Vzors SI — draudzīgs palīgs</title>
 <style>
-  *{box-sizing:border-box} body{margin:0;font-family:'Inter',system-ui;background:#f6efe6;color:#3a2a1a;min-height:100vh}
-  .browser{max-width:1100px;margin:24px auto;background:#fff9f0;border:1px solid #e8dcc8;border-radius:18px;box-shadow:0 20px 60px rgba(80,40,0,.15);overflow:hidden;position:relative}
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;background:#f6efe6;color:#3a2a1a}
+  .browser{max-width:1100px;margin:24px auto;background:#fff9f0;border:1px solid #e8dcc8;border-radius:18px;box-shadow:0 20px 60px rgba(80,40,0,.15);overflow:hidden}
   .browser-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#f3e8d6;border-bottom:1px solid #e8dcc8}
   .dot{width:12px;height:12px;border-radius:50%}.r{background:#ff9a8a}.y{background:#ffdf7a}.g{background:#a8d8a0}
   .tabs{display:flex;gap:8px;margin-left:16px;flex:1}.tab{background:#fff;padding:6px 14px;border-radius:10px 10px 0 0;font-size:13px;border:1px solid #e8dcc8;border-bottom:0}
-  .url{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #e8dcc8;border-radius:20px;padding:8px 14px;margin:12px 16px;font-size:14px}
-  .hero{padding:28px 24px 18px;text-align:center;background:linear-gradient(180deg,#fffaf1 0%,#fef6e9 100%);position:relative}
-  .hero h1{font-size:52px;margin:0;line-height:1.1;letter-spacing:-1px;color:#4a2f1a}
-  .hero p{margin:6px 0 20px;color:#7a5a3a;font-size:18px}
-  .search{max-width:520px;margin:0 auto;background:#fff;border:1px solid #e8dcc8;border-radius:999px;padding:10px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+  .url{display:flex;gap:8px;background:#fff;border:1px solid #e8dcc8;border-radius:20px;padding:8px 14px;margin:12px 16px;font-size:14px}
+  .hero{padding:28px 24px 18px;text-align:center;background:linear-gradient(180deg,#fffaf1,#fef6e9)}
+  .hero h1{font-size:48px;margin:0;color:#4a2f1a}.hero p{margin:6px 0 20px;color:#7a5a3a;font-size:18px}
+  .search{max-width:520px;margin:0 auto;background:#fff;border:1px solid #e8dcc8;border-radius:999px;padding:10px 16px;display:flex;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
   .search input{flex:1;border:0;outline:0;font-size:16px;background:transparent}
-  .search .ai{background:#fde9c2;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:18px 24px}
-  .card{background:#fff;border:1px solid #f0e3cc;border-radius:16px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
-  .card h3{margin:0 0 6px;font-size:18px}
-  .card small{color:#8a6a4a}
-  .card .tag{display:inline-block;margin-top:10px;background:#fef3e2;border:1px solid #f5dfb8;border-radius:999px;padding:4px 10px;font-size:12px}
-  .spark{padding:8px 24px 24px}
-  .spark-head{display:flex;justify-content:space-between;align-items:center}
-  .spark-head h2{font-size:20px;margin:0}
-  .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:12px}
-  .site{background:#fff;border:1px solid #eee0c5;border-radius:14px;padding:14px 6px;text-align:center;font-size:13px;font-weight:600}
+  .card{background:#fff;border:1px solid #f0e3cc;border-radius:16px;padding:16px}
+  .card h3{margin:0 0 6px;font-size:18px}.card small{color:#8a6a4a}
+  .spark{padding:8px 24px 24px}.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:12px}
+  .site{background:#fff;border:1px solid #eee0c5;border-radius:14px;padding:14px 6px;text-align:center;font-size:13px;font-weight:600;text-decoration:none;color:#3a2a1a;display:block;transition:.2s}
+  .site:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.1)}
   .site span{display:block;font-size:28px;margin-bottom:6px}
-  .footer{text-align:center;font-size:12px;color:#9a7f5e;padding:12px}
-  @media(max-width:800px){.cards{grid-template-columns:1fr}.grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:34px}}
+  #mi-btn{position:fixed;right:20px;bottom:20px;background:#4a2f1a;color:#fff9f0;border:0;border-radius:999px;padding:16px 22px;font-size:16px;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.25);cursor:pointer;z-index:999}
+  #mi-chat{position:fixed;right:20px;bottom:85px;width:360px;max-width:92vw;height:480px;background:#fff;border:1px solid #e8dcc8;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.25);display:none;flex-direction:column;z-index:999;overflow:hidden}
+  #mi-chat.open{display:flex}
+  .mi-head{background:#4a2f1a;color:#fff9f0;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+  .mi-body{flex:1;padding:14px;overflow:auto;display:flex;flex-direction:column;gap:10px;background:#fffaf1}
+  .msg{padding:10px 12px;border-radius:14px;max-width:85%;font-size:14px;line-height:1.4}
+  .msg.mi{background:#fff;border:1px solid #f0e3cc;align-self:flex-start}
+  .msg.you{background:#4a2f1a;color:#fff;align-self:flex-end}
+  .mi-input{display:flex;gap:8px;padding:10px;border-top:1px solid #f0e3cc;background:#fff}
+  .mi-input input{flex:1;border:1px solid #e8dcc8;border-radius:999px;padding:10px 14px;outline:0}
+  .mi-input button{border:0;background:#4a2f1a;color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="browser">
-  <div class="browser-bar">
-    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
-    <div class="tabs"><div class="tab">🎃 VZOR — Rudens & Helovīns</div><div class="tab" style="opacity:.6">+ Jauna cilne</div></div>
-  </div>
-  <div class="url">🔒 https://vzor.smartyou.lv</div>
-  
+  <div class="browser-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="tabs"><div class="tab">🍂 Vzors SI — draudzīgs palīgs</div></div></div>
+  <div class="url">🔒 angora2000plus-svg.github.io/Vzors-MI-Rudens/ — Vzors SI</div>
   <div class="hero">
     <h1>Labdien, Rudens</h1>
-    <p>Svētki, miers un silta noskaņa — 31. oktobris</p>
-    <div class="search">
-      <span>✨</span>
-      <input placeholder="VZOR AI" id="vzorSearch">
-      <span>🎤</span>
-      <span class="ai">AI</span>
-    </div>
+    <p>Vzors SI — draudzīgs, pļāpīgs palīgs. Vienmēr te.</p>
+    <div class="search"><span>✨</span><input id="mainSearch" placeholder="Parunā ar Vzors SI..."><span>🎤</span></div>
   </div>
-
   <div class="cards">
-    <div class="card">
-      <h3>🗓️🎃 Pasākumi Rīgā</h3>
-      <small>7 pasākumi šonedēļ • Tirgus, izstādes, koncerti</small><br>
-      <span class="tag">🍂 Rudens festivāls • 31. okt</span>
-    </div>
-    <div class="card">
-      <h3>🏠🍂 Dekorē mājās</h3>
-      <small>DIY idejas • Sveces, ķirbji, vainagi</small><br>
-      <span class="tag">✨ Jauns: Helovīna vainags</span>
-    </div>
-    <div class="card">
-      <h3>⛅🍃 Laiks šodien<br>12° • Mākoņains</h3>
-      <small>Rīga • Lietus 18:00 • Vējš 4 m/s</small><br>
-      <span class="tag">🌙 Vakarā +8°</span>
-    </div>
+    <div class="card"><h3>🗓️ Pasākumi Rīgā</h3><small>7 pasākumi šonedēļ</small></div>
+    <div class="card"><h3>🏠 Dekorē mājās</h3><small>DIY idejas — sveces, ķirbji</small></div>
+    <div class="card"><h3>⛅ Laiks šodien 12°</h3><small>Rīga — omulīgs rudens</small></div>
   </div>
-
   <div class="spark">
-    <div class="spark-head">
-      <h2>✨ Tava Spark lenta — Tavi mīļākie saiti</h2>
-      <a href="#" style="color:#b78a52;text-decoration:underline;font-size:14px">Rediģēt</a>
-    </div>
+    <h2>✨ Tava Spark lenta</h2>
     <div class="grid">
-      <div class="site"><span style="color:#4285F4">G</span>Google</div>
-      <div class="site"><span>▶️</span>YouTube</div>
-      <div class="site"><span style="color:#0066FF">DD</span>Delfi</div>
-      <div class="site"><span>🏠</span>SS.com</div>
-      <div class="site"><span style="color:#2e7d32">S</span>SmartYou</div>
-      <div class="site"><span>W</span>Wikipedia</div>
-      <div class="site"><span>🏠</span>SS.com</div>
-      <div class="site"><span style="color:#2e7d32">S</span>SmartYou</div>
-      <div class="site"><span>W</span>Wikipedia</div>
-      <div class="site"><span>W</span>Spotify</div>
-      <div class="site"><span>🎧</span>Spotify</div>
-      <div class="site"><span>📍</span>Maps</div>
+      <a class="site" href="https://google.com" target="_blank"><span>🔵</span>Google</a>
+      <a class="site" href="https://youtube.com" target="_blank"><span>▶️</span>YouTube</a>
+      <a class="site" href="https://delfi.lv" target="_blank"><span>DD</span>Delfi</a>
+      <a class="site" href="https://ss.com" target="_blank"><span>🏠</span>SS.com</a>
+      <a class="site" href="https://smartyou.lv" target="_blank"><span>S</span>SmartYou</a>
+      <a class="site" href="https://wikipedia.org" target="_blank"><span>W</span>Wiki</a>
+      <a class="site" href="https://open.spotify.com" target="_blank"><span>🎧</span>Spotify</a>
+      <a class="site" href="https://maps.google.com" target="_blank"><span>📍</span>Maps</a>
+      <a class="site" href="https://github.com/angora2000plus-svg/Vzors-MI-Rudens" target="_blank"><span>💻</span>GitHub</a>
+      <a class="site" href="https://apollo.lv" target="_blank"><span>📰</span>Apollo</a>
+      <a class="site" href="https://www.clarity.ms" target="_blank"><span>📊</span>Clarity</a>
+      <a class="site" href="#" onclick="alert('Rediģēt — drīz būs!');return false"><span>⚙️</span>Rediģēt</a>
     </div>
   </div>
 </div>
-
-<div class="footer">VZOR • AI palīgs • Tēmas: Rudens & Helovīns • Mainīt fona attēlu ⚙️</div>
-
+<button id="mi-btn">Vzors SI 💬</button>
+<div id="mi-chat">
+  <div class="mi-head"><span>Vzors SI</span><span style="cursor:pointer" onclick="toggleChat()">✕</span></div>
+  <div class="mi-body" id="miBody">
+    <div class="msg mi">Hei! Es esmu Vzors SI 👋<br><br>Es te — papļāpāt, palīdzēt, atrast kaut ko Rīgā vai vienkārši uztaisīt omulīgāku dienu. Kas tev prātā?</div>
+  </div>
+  <div class="mi-input"><input id="miInput" placeholder="Raksti..."><button onclick="sendMi()">Sūtīt</button></div>
+</div>
 <script>
-document.getElementById('vzorSearch').addEventListener('keydown', e=>{
-  if(e.key==='Enter'){
-    const q=e.target.value;
-    if(q) window.open('https://www.google.com/search?q='+encodeURIComponent(q), '_blank');
-  }
+const btn=document.getElementById('mi-btn'), chat=document.getElementById('mi-chat'), body=document.getElementById('miBody'), input=document.getElementById('miInput');
+function toggleChat(){chat.classList.toggle('open')}
+btn.onclick=toggleChat;
+function sendMi(){
+  const t=input.value.trim(); if(!t) return;
+  body.innerHTML+=`<div class="msg you">${t}</div>`;
+  input.value='';
+  setTimeout(()=>{
+    let r="";
+    const q=t.toLowerCase();
+    if(q.includes("laiks")) r="Rīgā šodien ap 12°, omulīgs rudens. Vakarā ap 8°. Ideāls laiks tējai. Ko tu šodien dari?";
+    else if(q.includes("rudens")||q.includes("helov")) r="Man rudens ir mīļākais! Ķirbji, sveces, silta gaisma. Gribi kādu DIY ideju?";
+    else if(q.includes("vari")||q.includes("palīdz")) r="Es varu parunāt, palīdzēt atrast pasākumus, atvērt tavus saitus no lentas, vai vienkārši būt kompānijā. Kas vajadzīgs?";
+    else r=`Sapratu — "${t}". Pastāsti vairāk, es klausos.`;
+    body.innerHTML+=`<div class="msg mi">${r}</div>`;
+    body.scrollTop=body.scrollHeight;
+  },400);
+}
+input.addEventListener('keydown',e=>{if(e.key==='Enter')sendMi()});
+document.getElementById('mainSearch').addEventListener('keydown',e=>{
+  if(e.key==='Enter'){input.value=e.target.value;if(!chat.classList.contains('open'))toggleChat();sendMi();e.target.value=''}
 });
 </script>
 </body>
