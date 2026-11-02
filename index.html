@@ -1,33 +1,107 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vzors MI Rudens</title>
-
-  <!-- Microsoft Clarity - VZOR -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ТВОЙ_CLARITY_ID");
-  </script>
-  <!-- End Clarity -->
-
-  <style>
-    body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
-    .vzor-container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VZOR — Rudens & Helovīns</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box} body{margin:0;font-family:'Inter',system-ui;background:#f6efe6;color:#3a2a1a;min-height:100vh}
+  .browser{max-width:1100px;margin:24px auto;background:#fff9f0;border:1px solid #e8dcc8;border-radius:18px;box-shadow:0 20px 60px rgba(80,40,0,.15);overflow:hidden;position:relative}
+  .browser-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#f3e8d6;border-bottom:1px solid #e8dcc8}
+  .dot{width:12px;height:12px;border-radius:50%}.r{background:#ff9a8a}.y{background:#ffdf7a}.g{background:#a8d8a0}
+  .tabs{display:flex;gap:8px;margin-left:16px;flex:1}.tab{background:#fff;padding:6px 14px;border-radius:10px 10px 0 0;font-size:13px;border:1px solid #e8dcc8;border-bottom:0}
+  .url{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #e8dcc8;border-radius:20px;padding:8px 14px;margin:12px 16px;font-size:14px}
+  .hero{padding:28px 24px 18px;text-align:center;background:linear-gradient(180deg,#fffaf1 0%,#fef6e9 100%);position:relative}
+  .hero h1{font-size:52px;margin:0;line-height:1.1;letter-spacing:-1px;color:#4a2f1a}
+  .hero p{margin:6px 0 20px;color:#7a5a3a;font-size:18px}
+  .search{max-width:520px;margin:0 auto;background:#fff;border:1px solid #e8dcc8;border-radius:999px;padding:10px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+  .search input{flex:1;border:0;outline:0;font-size:16px;background:transparent}
+  .search .ai{background:#fde9c2;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:18px 24px}
+  .card{background:#fff;border:1px solid #f0e3cc;border-radius:16px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .card h3{margin:0 0 6px;font-size:18px}
+  .card small{color:#8a6a4a}
+  .card .tag{display:inline-block;margin-top:10px;background:#fef3e2;border:1px solid #f5dfb8;border-radius:999px;padding:4px 10px;font-size:12px}
+  .spark{padding:8px 24px 24px}
+  .spark-head{display:flex;justify-content:space-between;align-items:center}
+  .spark-head h2{font-size:20px;margin:0}
+  .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:12px}
+  .site{background:#fff;border:1px solid #eee0c5;border-radius:14px;padding:14px 6px;text-align:center;font-size:13px;font-weight:600}
+  .site span{display:block;font-size:28px;margin-bottom:6px}
+  .footer{text-align:center;font-size:12px;color:#9a7f5e;padding:12px}
+  @media(max-width:800px){.cards{grid-template-columns:1fr}.grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:34px}}
+</style>
 </head>
 <body>
-  <div class="vzor-container">
-    <h1>Vzors MI Rudens</h1>
-    <div id="vzor-app">
-      <!-- твой VZOR код тут -->
+<div class="browser">
+  <div class="browser-bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <div class="tabs"><div class="tab">🎃 VZOR — Rudens & Helovīns</div><div class="tab" style="opacity:.6">+ Jauna cilne</div></div>
+  </div>
+  <div class="url">🔒 https://vzor.smartyou.lv</div>
+  
+  <div class="hero">
+    <h1>Labdien, Rudens</h1>
+    <p>Svētki, miers un silta noskaņa — 31. oktobris</p>
+    <div class="search">
+      <span>✨</span>
+      <input placeholder="VZOR AI" id="vzorSearch">
+      <span>🎤</span>
+      <span class="ai">AI</span>
     </div>
   </div>
 
-  <script src="./vzor-core/skills/basic.js"></script>
+  <div class="cards">
+    <div class="card">
+      <h3>🗓️🎃 Pasākumi Rīgā</h3>
+      <small>7 pasākumi šonedēļ • Tirgus, izstādes, koncerti</small><br>
+      <span class="tag">🍂 Rudens festivāls • 31. okt</span>
+    </div>
+    <div class="card">
+      <h3>🏠🍂 Dekorē mājās</h3>
+      <small>DIY idejas • Sveces, ķirbji, vainagi</small><br>
+      <span class="tag">✨ Jauns: Helovīna vainags</span>
+    </div>
+    <div class="card">
+      <h3>⛅🍃 Laiks šodien<br>12° • Mākoņains</h3>
+      <small>Rīga • Lietus 18:00 • Vējš 4 m/s</small><br>
+      <span class="tag">🌙 Vakarā +8°</span>
+    </div>
+  </div>
+
+  <div class="spark">
+    <div class="spark-head">
+      <h2>✨ Tava Spark lenta — Tavi mīļākie saiti</h2>
+      <a href="#" style="color:#b78a52;text-decoration:underline;font-size:14px">Rediģēt</a>
+    </div>
+    <div class="grid">
+      <div class="site"><span style="color:#4285F4">G</span>Google</div>
+      <div class="site"><span>▶️</span>YouTube</div>
+      <div class="site"><span style="color:#0066FF">DD</span>Delfi</div>
+      <div class="site"><span>🏠</span>SS.com</div>
+      <div class="site"><span style="color:#2e7d32">S</span>SmartYou</div>
+      <div class="site"><span>W</span>Wikipedia</div>
+      <div class="site"><span>🏠</span>SS.com</div>
+      <div class="site"><span style="color:#2e7d32">S</span>SmartYou</div>
+      <div class="site"><span>W</span>Wikipedia</div>
+      <div class="site"><span>W</span>Spotify</div>
+      <div class="site"><span>🎧</span>Spotify</div>
+      <div class="site"><span>📍</span>Maps</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">VZOR • AI palīgs • Tēmas: Rudens & Helovīns • Mainīt fona attēlu ⚙️</div>
+
+<script>
+document.getElementById('vzorSearch').addEventListener('keydown', e=>{
+  if(e.key==='Enter'){
+    const q=e.target.value;
+    if(q) window.open('https://www.google.com/search?q='+encodeURIComponent(q), '_blank');
+  }
+});
+</script>
 </body>
 </html>
+
