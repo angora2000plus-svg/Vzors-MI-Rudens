@@ -23,17 +23,18 @@
   .site{background:#fff;border:1px solid #eee0c5;border-radius:14px;padding:14px 6px;text-align:center;font-size:13px;font-weight:600;text-decoration:none;color:#3a2a1a;display:block;transition:.2s}
   .site:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.1)}
   .site span{display:block;font-size:28px;margin-bottom:6px}
-  #mi-btn{position:fixed;right:20px;bottom:20px;background:#4a2f1a;color:#fff9f0;border:0;border-radius:999px;padding:16px 22px;font-size:16px;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.25);cursor:pointer;z-index:999}
-  #mi-chat{position:fixed;right:20px;bottom:85px;width:360px;max-width:92vw;height:480px;background:#fff;border:1px solid #e8dcc8;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.25);display:none;flex-direction:column;z-index:999;overflow:hidden}
+  /* AMETIST ZONE */
+  #mi-btn{position:fixed;right:20px;bottom:20px;background:#7A5AB5;color:#fff;border:0;border-radius:999px;padding:16px 22px;font-size:16px;font-weight:700;box-shadow:0 10px 30px rgba(122,90,181,.35);cursor:pointer;z-index:999}
+  #mi-chat{position:fixed;right:20px;bottom:85px;width:360px;max-width:92vw;height:480px;background:#fff;border:1px solid #e0d6f0;border-radius:18px;box-shadow:0 20px 60px rgba(122,90,181,.25);display:none;flex-direction:column;z-index:999;overflow:hidden}
   #mi-chat.open{display:flex}
-  .mi-head{background:#4a2f1a;color:#fff9f0;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;font-weight:700}
-  .mi-body{flex:1;padding:14px;overflow:auto;display:flex;flex-direction:column;gap:10px;background:#fffaf1}
+  .mi-head{background:#7A5AB5;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+  .mi-body{flex:1;padding:14px;overflow:auto;display:flex;flex-direction:column;gap:10px;background:#fbf7ff}
   .msg{padding:10px 12px;border-radius:14px;max-width:85%;font-size:14px;line-height:1.4}
-  .msg.mi{background:#fff;border:1px solid #f0e3cc;align-self:flex-start}
-  .msg.you{background:#4a2f1a;color:#fff;align-self:flex-end}
-  .mi-input{display:flex;gap:8px;padding:10px;border-top:1px solid #f0e3cc;background:#fff}
-  .mi-input input{flex:1;border:1px solid #e8dcc8;border-radius:999px;padding:10px 14px;outline:0}
-  .mi-input button{border:0;background:#4a2f1a;color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer}
+  .msg.mi{background:#fff;border:1px solid #e9ddf7;align-self:flex-start}
+  .msg.you{background:#7A5AB5;color:#fff;align-self:flex-end}
+  .mi-input{display:flex;gap:8px;padding:10px;border-top:1px solid #e9ddf7;background:#fff}
+  .mi-input input{flex:1;border:1px solid #e0d6f0;border-radius:999px;padding:10px 14px;outline:0}
+  .mi-input button{border:0;background:#7A5AB5;color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer}
   @media(max-width:700px){.cards{grid-template-columns:1fr}.grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:32px}}
 </style>
 </head>
@@ -59,12 +60,11 @@
   </div></div>
 </div>
 <button id="mi-btn">Vzors SI 💬</button>
-<div id="mi-chat"><div class="mi-head"><span>Vzors SI</span><span style="cursor:pointer" onclick="toggleChat()">✕</span></div><div class="mi-body" id="miBody"><div class="msg mi">Hei! Es esmu Vzors SI 👋<br><br>Es te — papļāpāt, palīdzēt, atrast kaut ko Rīgā vai vienkārši uztaisīt omulīgāku dienu. Kas tev prātā?</div></div><div class="mi-input"><input id="miInput" placeholder="Raksti..."><button onclick="sendMi()">Sūtīt</button></div></div>
+<div id="mi-chat"><div class="mi-head"><span>Vzors SI</span><span style="cursor:pointer" onclick="toggleChat()">✕</span></div><div class="mi-body" id="miBody"><div class="msg mi">Hei! Es esmu Vzors SI 👋<br>Tagad ametista krāsā — kā tu vēlējies. Kas tev prātā?</div></div><div class="mi-input"><input id="miInput" placeholder="Raksti..."><button onclick="sendMi()">Sūtīt</button></div></div>
 <script>
 const btn=document.getElementById('mi-btn'),chat=document.getElementById('mi-chat'),body=document.getElementById('miBody'),input=document.getElementById('miInput');
-function toggleChat(){chat.classList.toggle('open')}
-btn.onclick=toggleChat;
-function sendMi(){const t=input.value.trim();if(!t)return;body.innerHTML+=`<div class="msg you">${t}</div>`;input.value='';setTimeout(()=>{let r="";const q=t.toLowerCase();if(q.includes("laiks"))r="Rīgā šodien ap 12°, omulīgs rudens. Vakarā ap 8°. Ideāls laiks tējai.";else if(q.includes("palīdz"))r="Es varu parunāt, palīdzēt atrast pasākumus, atvērt tavus saitus no lentas, vai vienkārši būt kompānijā.";else r=`Sapratu — "${t}". Pastāsti vairāk, es klausos.`;body.innerHTML+=`<div class="msg mi">${r}</div>`;body.scrollTop=body.scrollHeight;},400);}
+function toggleChat(){chat.classList.toggle('open')} btn.onclick=toggleChat;
+function sendMi(){const t=input.value.trim();if(!t)return;body.innerHTML+=`<div class="msg you">${t}</div>`;input.value='';setTimeout(()=>{body.innerHTML+=`<div class="msg mi">Sapratu — "${t}". Pastāsti vairāk, es klausos ametista krāsā.</div>`;body.scrollTop=body.scrollHeight;},400);}
 input.addEventListener('keydown',e=>{if(e.key==='Enter')sendMi()});
 document.getElementById('mainSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){input.value=e.target.value;if(!chat.classList.contains('open'))toggleChat();sendMi();e.target.value=''}});
 </script>
