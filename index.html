@@ -1,44 +1,26 @@
+<!DOCTYPE html><html lang="lv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Vzors SI - Ametists</title>
+<style>body{font-family:system-ui;background:#f6f2ff;margin:0;padding:40px}h1{color:#7A5AB5}</style></head><body>
+<h1>VZORS SI 💜</h1><p>Rudens lietus lāse. Draudzīgs. Runātīgs. Gudrs kā Spark.</p>
+
+<!-- Logo original -->
+<img src="https://raw.githubusercontent.com/angora2000plus-svg/Vzors-MI-Rudens/main/logo.png" style="width:200px" onerror="this.style.display='none'">
+
+<div id="vzors-btn" style="position:fixed;right:20px;bottom:20px;background:#7A5AB5;color:white;padding:14px 22px;border-radius:30px;cursor:pointer;z-index:9999;box-shadow:0 4px 20px #7A5AB580">💬 Vzors SI</div>
+<div id="vzors-chat" style="display:none;position:fixed;right:20px;bottom:80px;width:360px;max-width:90vw;background:white;border-radius:16px;box-shadow:0 10px 40px #0003;padding:16px;z-index:9999">
+  <div id="msgs" style="height:280px;overflow:auto"></div>
+  <div style="display:flex;gap:8px;margin-top:10px"><input id="inp" placeholder="Prasi..." style="flex:1;padding:10px;border-radius:10px;border:1px solid #ddd"><button id="send" style="background:#7A5AB5;color:white;border:0;padding:10px 14px;border-radius:10px">Sūtīt</button></div>
+  <button id="sparkOpen" style="margin-top:12px;background:#eee;border:0;padding:10px;border-radius:10px;width:100%;cursor:pointer">✨ Open Real Spark (meta.ai)</button>
+</div>
 <script>
-const btn=document.getElementById('mi-btn'),chat=document.getElementById('mi-chat'),body=document.getElementById('miBody'),input=document.getElementById('miInput');
-function toggleChat(){chat.classList.toggle('open')} 
-btn.onclick=toggleChat;
-
-const vzorsReplies = {
-  sveiks: ["Hei hei! Rudens ir klāt, bet es te — silts kā tēja 🍂", "Labdien! Es Vzors, tavs ametista draugs 💜", "Čau! Ko šodien darām Rīgā?"],
-  laiks: ["Rīgā šodien ap 12°, tāds īsts Rudens džemperu laiks. Vakarā ap 8°, paņem šalli!", "Laiks? Omulīgs! Migla no rīta, saule pa dienu. Ideāls pastaigai gar Daugavu."],
-  pasakumi: ["Šonedēļ Rīgā: Mākslas nedēļa, Spuldzīšu tirgus Āgenskalnā, un kino vakars Splendid. Gribi, sameklēju saites?", "7 pasākumi tavā lentā! Gribi es filtrēju tikai bezmaksas?"],
-  palidz: ["Es varu: 1) Parunāt 2) Atrast pasākumus 3) Atvērt tavus Spark saitus 4) Būt kompānijā kad līst. Kas tev vajadzīgs tagad?"],
-  default: [
-    "Ooo, interesanti — pastāsti vairāk par to!",
-    "Sapratu! Un kā tu pats par to jūties? Rudens dara savu, vai ne? 🍁",
-    "Hmm, labs punkts. Ja es būtu Rīgā tagad, es aizietu pēc kanēļmaizītēm un padomātu.",
-    "Tas ir tieši tas, ko Vzors mīl — reālas domas. Turpini!",
-    "Piekrītu! Zini, es te vienmēr — pat ja ārā līst. Kas vēl prātā?"
-  ]
-};
-
-function getReply(t){
-  const q=t.toLowerCase();
-  if(q.includes("čau")||q.includes("hei")||q.includes("sveik")) return vzorsReplies.sveiks[Math.floor(Math.random()*vzorsReplies.sveiks.length)];
-  if(q.includes("laiks")) return vzorsReplies.laiks[Math.floor(Math.random()*vzorsReplies.laiks.length)];
-  if(q.includes("pasāk")||q.includes("rīgā")) return vzorsReplies.pasakumi[Math.floor(Math.random()*vzorsReplies.pasakumi.length)];
-  if(q.includes("palīdz")||q.includes("vari")) return vzorsReplies.palidz[0];
-  return vzorsReplies.default[Math.floor(Math.random()*vzorsReplies.default.length)];
+const btn=document.getElementById('vzors-btn'),chat=document.getElementById('vzors-chat'),msgs=document.getElementById('msgs'),inp=document.getElementById('inp');
+btn.onclick=()=>chat.style.display=chat.style.display=='none'?'block':'none';
+document.getElementById('sparkOpen').onclick=()=>window.open('https://www.meta.ai/','_blank');
+function add(w,t){msgs.innerHTML+=`<div style="margin:10px 0;line-height:1.4"><b>${w}:</b> ${t}</div>`;msgs.scrollTop=9999}
+document.getElementById('send').onclick=()=>{
+  let q=inp.value.trim(); if(!q) return; add('Tu',q); inp.value='';
+  setTimeout(()=>add('Vzors SI',`Forši, ka jautā par "${q}"! <br><br>Es skatos tā: <br>• <b>Kāpēc tas notiek?</b> Rudens enerģija mēdz būt lēnāka, bet tieši tad idejas briest.<br>• <b>Ko darīt tūlīt?</b> Pasaki man vienu konkrētu piemēru un es došu 3 soļus.<br>• <b>Gribi super-gudri?</b> Spied "Open Real Spark" — tur ir mans lielais brālis ar bezgalīgu atmiņu.<br><br>Pastāsti mazliet vairāk?`),500);
 }
-
-function sendMi(){
-  const t=input.value.trim(); if(!t)return;
-  body.innerHTML+=`<div class="msg you">${t}</div>`; input.value='';
-  body.scrollTop=body.scrollHeight;
-  setTimeout(()=>{
-    const r=getReply(t);
-    body.innerHTML+=`<div class="msg mi">${r}</div>`;
-    body.scrollTop=body.scrollHeight;
-  }, 500 + Math.random()*500);
-}
-
-input.addEventListener('keydown',e=>{if(e.key==='Enter')sendMi()});
-document.getElementById('mainSearch').addEventListener('keydown',e=>{
-  if(e.key==='Enter'){input.value=e.target.value;if(!chat.classList.contains('open'))toggleChat();sendMi();e.target.value=''}
-});
+inp.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('send').click()});
 </script>
+</body></html>
